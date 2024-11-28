@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MICROPENIS CLUB</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: black;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 300px;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MICROPENIS CLUB</h1>
+    <p>Digite o ID para verificar se o cartão é válido</p>
+    <input type="text" id="cardId" placeholder="Digite o ID do cartão">
+    <button onclick="validateCard()">Verificar</button>
+    <div id="cardDisplay"></div>
+    <p style="margin-top: 20px;">Para entrar no club e ter seu cartão, entre em contato no instagram @diego0x20</p>
+    <script>
+        function validateCard() {
+            const validCards = {
+                "0001": "./2.png",
+                "0002": "./1.png",
+                "0003": "./3.png",
+                "0004": "./5.png",
+                "0005": "./4.png",
+                // Adicione mais IDs e URLs de imagens aqui
+            };
+
+            const input = document.getElementById('cardId').value.trim();
+            const cardDisplay = document.getElementById('cardDisplay');
+
+            cardDisplay.innerHTML = ''; // Limpa qualquer resultado anterior
+
+            if (validCards[input]) {
+                const img = document.createElement('img');
+                img.src = validCards[input];
+                img.alt = `Cartão ${input}`;
+                cardDisplay.appendChild(img);
+            } else {
+                cardDisplay.innerHTML = '<p>Cartão inválido.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
